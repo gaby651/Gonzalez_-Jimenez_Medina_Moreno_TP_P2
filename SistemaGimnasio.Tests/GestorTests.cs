@@ -22,17 +22,18 @@ namespace SistemaGimnasio.Tests {
             Assert.Equal(rutina, usuario.RutinaAsignada);
         }
         [Fact]
-        public void AsignarUusarioAEntrenador_DebeIncluirUsuario() {
-        //Arrange 
-        var usuario = new Usuario("gael", 20, "Definir");
-        //
+        public void AsignarUsuarioAEntrenador_DebeIncluiUsuario()
+        {
+            //Arrange
+            var usuario = new Usuario("Gael", 20, "Definir");
+            var entrenador = new Entrenador("Pepe", "Licuados");
+            var asignador = new AsignadorRutinas();
 
+            //act
+            asignador.AsignarUsuarioAEntrenador(usuario, entrenador);
 
-
+            //Assert
+            Assert.Contains(usuario, entrenador.ObtenerUsuariosAsignados());
         }
-        
-
-
-
     }
 }
